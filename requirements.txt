@@ -3,3 +3,5 @@ scipy
 librosa
 termcolor
 pandas
+python_speech_features
+pyarrow
