@@ -14,9 +14,9 @@ class Features:
             df = targetcorpus.data
             files = df.file.unique().tolist()
             for file in files:
-                subset = df.loc[df['file'] == file]
                 fname = file.split["/"][-1]
                 afile = Audio(filename=fname, fullpath=file)
+                subset = df.loc[df['file'] == file]
                 afile.read(f_rate=sys.argv['resample'])
                 afile.start = subset.start.values.tolist()
                 afile.end = subset.end.values.tolist()
