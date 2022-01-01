@@ -1,8 +1,8 @@
+import sys
 import random
 from audio import Audio
 from scipy import stats
-import sys
-
+from utils import path_leaf
 
 class Features:
     def __init__(self, method="cfbsf"):
@@ -14,10 +14,11 @@ class Features:
             df = targetcorpus.data
             files = df.file.unique().tolist()
             for file in files:
-                fname = file.split["/"][-1]
+                fname = path_leaf(file)
                 afile = Audio(filename=fname, fullpath=file)
                 subset = df.loc[df['file'] == file]
-                afile.read(f_rate=sys.argv['resample'])
+                print("words in this file are", subset.shape[0])
+                afile.read(f_rate=16000)
                 afile.start = subset.start.values.tolist()
                 afile.end = subset.end.values.tolist()
                 afile.words = subset.word.values.tolist()

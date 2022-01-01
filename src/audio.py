@@ -23,7 +23,7 @@ def envelope(sig):
         return amplitude_env
 
 
-def get_chunk_idx(sig, function=sys.argv["function"]):
+def get_chunk_idx(sig, function):
     enveloped = envelope(sig)
     chunk_idx = []
     frame = 1000
